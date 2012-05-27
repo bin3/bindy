@@ -1,0 +1,7 @@
+Import('env')
+cur_env = env.Clone()
+cur_env.Program(Split('''
+	test_main.cc
+	vector_test.cc
+	pair_test.cc
+'''))

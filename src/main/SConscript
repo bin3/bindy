@@ -1,0 +1,3 @@
+Import('env')
+cur_env = env.Clone()
+cur_env.Program('hello_world_main.cc')

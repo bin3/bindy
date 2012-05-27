@@ -1,0 +1,7 @@
+Import('env')
+
+subdirs = ['main', 'stl', 'cpp']
+for x in subdirs:
+  target_dir='%s/%s' % (env['build_dir'], x)
+  print "Building " + target_dir
+  SConscript('%s/SConscript' % x, variant_dir=target_dir, duplicate=0)
