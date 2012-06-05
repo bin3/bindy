@@ -1,6 +1,6 @@
 Import('env')
 
-subdirs = ['main', 'stl', 'cpp']
+subdirs = ['main', 'stl', 'cpp', 'demo']
 for x in subdirs:
   target_dir='%s/%s' % (env['build_dir'], x)
   print "Building " + target_dir

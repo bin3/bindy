@@ -63,6 +63,9 @@ public:
     static const size_type kMaxSize = size_type(-1) / sizeof(T);
     return kMaxSize;
   }
+  bool empty() {
+    return size() == 0;
+  }
 
   void push_back(const T& x) {
     if (end_ != end_of_storage_) {
@@ -74,12 +77,50 @@ public:
       if (new_sz > max_size()) {
         new_sz = max_size();
       }
+
+      pointer new_begin = alloc_.allocate(new_sz, pointer(0));
+      pointer new_end(new_begin);
+      new_end = construct(begin_, end_, new_end);
+      *new_end = x;
+      ++new_end;
+      destroy(begin_, end_);
+      alloc_.deallocate(begin_, capacity());
+
+      begin_ = new_begin;
+      end_ = new_end;
+      end_of_storage_ = new_begin + new_sz;
     }
+  }
+  void pop_back() {
+    --end_;
+    alloc_.destroy(end_);
+  }
+  void insert(iterator p, const value_type& x) {
+    if (end_ != end_of_storage_) {
+
+    }
+  }
+  void clear() {
+    destroy(begin_, end_);
+    end_ = begin_;
   }
 private:
   pointer begin_;
   pointer end_;
   pointer end_of_storage_;
+  Alloc alloc_;
+
+  pointer construct(pointer first, pointer last, pointer result) {
+    for (pointer p = first; p != last; ++p, ++result) {
+      alloc_.construct(result, *p);
+    }
+    return result;
+  }
+  void destroy(pointer first, pointer last) {
+    for (pointer p = first; p != last; ++p) {
+      alloc_.destroy(p);
+    }
+  }
 };
 
 } /* namespace stl */
