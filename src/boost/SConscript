@@ -1,0 +1,10 @@
+Import('env')
+cur_env = env.Clone()
+
+#cur_env.Append(LIBPATH='/usr/local/lib')
+cur_env.Append(LIBS='boost_regex')
+
+cur_env.Program('cast_main.cc')
+cur_env.Program('format_main.cc')
+cur_env.Program('regex_main.cc')
+
