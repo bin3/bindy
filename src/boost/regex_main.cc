@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 #include <boost/regex.hpp>
-#include <boost/regex/icu.hpp>
+//#include <boost/regex/icu.hpp>
 
 using namespace std;
 using namespace boost;
@@ -50,7 +50,7 @@ void Demo() {
 int main() {
   Demo();
 
-  u32regex u32reg;
+  //u32regex u32reg; // Have to install ICU
 
   return 0;
 }

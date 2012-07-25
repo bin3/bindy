@@ -7,4 +7,5 @@ cur_env.Append(LIBS='boost_regex')
 cur_env.Program('cast_main.cc')
 cur_env.Program('format_main.cc')
 cur_env.Program('regex_main.cc')
-
+cur_env.Program('graph_main.cc')
+cur_env.Program('property_map_main.cc')
