@@ -35,7 +35,7 @@ void numeric_cast_demo() {
   using boost::numeric::negative_overflow;
   try {
     int i = 42;
-    short s = numeric_cast<short>(i); // This conversion succeeds (is in range) 转换成功(在范围内)
+    numeric_cast<short>(i); // This conversion succeeds (is in range) 转换成功(在范围内)
   } catch (negative_overflow& e) {
     std::cout << e.what();
   } catch (positive_overflow& e) {
@@ -45,11 +45,11 @@ void numeric_cast_demo() {
     float f = -42.1234;
     // This will cause a boost::numeric::negative_overflow exception to be thrown
     // 这将引发一个 boost::numeric::negative_overflow 异常被抛出
-    unsigned int i = numeric_cast<unsigned int>(f);
+    numeric_cast<unsigned int>(f);
   } catch (bad_numeric_cast& e) {
     std::cout << e.what() << std::endl;
   }
-  double d = numeric_cast<double>(123); // int -> double
+  numeric_cast<double>(123); // int -> double
 
   unsigned long l = std::numeric_limits<unsigned long>::max();
   try {
@@ -60,7 +60,7 @@ void numeric_cast_demo() {
     // 注：在无符号整数类型上的*operations*不会引起溢出，
     // 但是在有符号类型上的*operations*则要由 numeric_cast 进行范围检查
 
-    unsigned char c = numeric_cast<unsigned char>(l);
+    numeric_cast<unsigned char>(l);
   } catch (positive_overflow& e) {
     std::cout << e.what() << std::endl;
   }

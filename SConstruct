@@ -30,6 +30,9 @@ static_libs = [
   'gtest',
 ]
 
+
+env.Append(CPPFLAGS='-g')
+#env.Append(CPPFLAGS='-O2')
 env.Append(CPPPATH=cpp_path)
 env.Append(LIBPATH=lib_path)
 env.Append(LIBS=static_libs)

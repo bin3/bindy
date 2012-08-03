@@ -20,29 +20,29 @@ void PushBack(Vector<T>& v, const T& x, size_t n) {
 
 TEST(VectorTest, size) {
   Vector<int> v;
-  EXPECT_EQ(0, v.size());
+  EXPECT_EQ(0u, v.size());
 }
 
 TEST(VectorTest, push_back) {
   Vector<int> v;
-  EXPECT_EQ(0, v.size());
-  EXPECT_EQ(0, v.capacity());
+  EXPECT_EQ(0u, v.size());
+  EXPECT_EQ(0u, v.capacity());
 
   PushBack(v, 1, 1);
-  EXPECT_EQ(1, v.size());
-  EXPECT_EQ(1, v.capacity());
+  EXPECT_EQ(1u, v.size());
+  EXPECT_EQ(1u, v.capacity());
 
   PushBack(v, 2, 2);
-  EXPECT_EQ(3, v.size());
-  EXPECT_EQ(4, v.capacity());
+  EXPECT_EQ(3u, v.size());
+  EXPECT_EQ(4u, v.capacity());
 
   PushBack(v, 3, 5);
-  EXPECT_EQ(8, v.size());
-  EXPECT_EQ(8, v.capacity());
+  EXPECT_EQ(8u, v.size());
+  EXPECT_EQ(8u, v.capacity());
 
   PushBack(v, 4, 1);
-  EXPECT_EQ(9, v.size());
-  EXPECT_EQ(16, v.capacity());
+  EXPECT_EQ(9u, v.size());
+  EXPECT_EQ(16u, v.capacity());
 }
 
 } /* namespace stl */

@@ -1,0 +1,6 @@
+add_subdirectory(main)
+add_subdirectory(stl)
+add_subdirectory(cpp)
+add_subdirectory(demo)
+add_subdirectory(boost)
+add_subdirectory(cpp11)

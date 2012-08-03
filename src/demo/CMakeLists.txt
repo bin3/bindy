@@ -1,0 +1,2 @@
+add_executable(leveldb_demo leveldb_demo.cc)
+target_link_libraries(leveldb_demo leveldb)

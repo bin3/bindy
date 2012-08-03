@@ -11,12 +11,12 @@
 namespace bindy {
 namespace stl {
 
-TEST(PairTest, Pair) {
+/*TEST(PairTest, Pair) {
   Pair<int, double> pid(1, 3.4);
   Pair<double, int> pdi(pid);
   EXPECT_EQ(1, pdi.first);
   EXPECT_EQ(3, pdi.second);
-}
+}*/
 
 TEST(PairTest, operators) {
   Pair<int, double> p0(1, 3.4);
