@@ -12,7 +12,8 @@ struct A {
 };
 
 int main(int argc, char **argv) {
-  __gnu_cxx::__add_unsigned<int>::__type ui;
+  __gnu_cxx::__add_unsigned<int>::__type ui = 1;
+  ++ui;
   //__gnu_cxx::__add_unsigned<void>::__type uv; // CE
   //__gnu_cxx::__add_unsigned<A>::__type ua;    // CE
   return 0;
