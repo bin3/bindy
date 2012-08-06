@@ -30,10 +30,24 @@ class Counter {
 };
 
 int main(int argc, char **argv) {
-  std::vector<int> vi;
-  vi.push_back(9);
+  int kThreads = 5;
   Counter cnt;
-  cnt.Increment();
+  std::vector<std::thread> threads;
+  for (int i = 0; i < kThreads; ++i) {
+    threads.push_back(std::thread([&](){
+      for (int j = 0; j < 100; ++j) {
+        cnt.Increment();
+      }
+    }));
+  }
+
+//  for (int i = 0; i < kThreads; ++i) {
+//    threads[i].join();
+//  }
+  for (auto& thread: threads) {
+    thread.join();
+  }
+
   std::cout << "cnt.value()=" << cnt.value() << std::endl;
   return 0;
 }
