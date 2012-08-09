@@ -1,6 +1,6 @@
 add_executable(cast_main cast_main.cc)
 add_executable(format_main format_main.cc)
-add_executable(regex_main regex_main.cc)
-target_link_libraries(regex_main boost_regex)
+add_executable(boost_regex_main regex_main.cc)
+target_link_libraries(boost_regex_main boost_regex)
 add_executable(graph_main graph_main.cc)
 add_executable(property_map_main property_map_main.cc)
