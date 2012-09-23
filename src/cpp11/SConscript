@@ -1,6 +1,6 @@
 Import('env')
 cur_env = env.Clone()
 
-cur_env.Append(CXXFLAGS='-std=c++11')
+#cur_env.Append(CXXFLAGS='-std=c++11')
 
-cur_env.Program('thread_main.cc')
+#cur_env.Program('tuple_main.cc')
