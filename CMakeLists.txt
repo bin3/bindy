@@ -34,7 +34,6 @@ set(CXX_FLAGS
 string(REPLACE ";" " " CMAKE_CXX_FLAGS "${CXX_FLAGS}")
 
 set(CMAKE_CXX_COMPILER "g++")
-#set(CMAKE_CXX_COMPILER "icpc")
 set(CMAKE_CXX_FLAGS_DEBUG "-O0")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -finline-limit=1000 -DNDEBUG")
 
@@ -42,8 +41,6 @@ set(EXECUTABLE_OUTPUT_PATH ${bin_dir})
 set(LIBRARY_OUTPUT_PATH ${lib_dir})
 
 find_package(Boost REQUIRED)
-find_package(Protobuf)
-find_path(PROTOBUF_PLUGIN google/protobuf/compiler/cpp/cpp_generator.h)
 
 include_directories(${Boost_INCLUDE_DIRS})
 

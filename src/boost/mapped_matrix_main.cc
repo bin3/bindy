@@ -12,6 +12,7 @@
 int main(int argc, char **argv) {
   using namespace boost::numeric::ublas;
   mapped_matrix<double> m (3, 3, 3 * 3);
+  std::cout << "m(1,2)=" << m(1,2) << std::endl;
   for (unsigned i = 0; i < m.size1 (); ++ i)
       for (unsigned j = 0; j < m.size2 (); ++ j)
           m (i, j) = 3 * i + j;
