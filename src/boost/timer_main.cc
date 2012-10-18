@@ -13,17 +13,19 @@ using boost::timer::cpu_timer;
 using boost::timer::cpu_times;
 using boost::timer::nanosecond_type;
 
-void auto_cpu_timer_demo() {
-  boost::timer::auto_cpu_timer t;
+void burn_time() {
   for (long i = 0; i < 1000000; ++i)
     std::sqrt(123.456L); // burn some time
 }
 
-void cpu_timer_demo() {
+void auto_cpu_timer_demo() {
+  boost::timer::auto_cpu_timer t;
+  burn_time();
+}
 
-  std::cout << "input something:" << std::endl;
+void cpu_timer_demo() {
   cpu_timer timer;
-  std::cin.get();
+  burn_time();
   cpu_times const elapsed_times(timer.elapsed());
   nanosecond_type const elapsed(elapsed_times.system + elapsed_times.user);
   std::cout << "elapsed=" << elapsed << std::endl;
