@@ -12,7 +12,18 @@
 using namespace boost;
 using namespace std;
 
-void split() {
+void Split(const std::string str, const std::string& sep) {
+  std::vector<string> tokens;
+  boost::split(tokens, str, boost::is_any_of(sep.c_str()), boost::algorithm::token_compress_on);
+  std::cout << "str=" << str << ", sep=[" << sep << "]\n";
+  std::cout << "tokens(" << tokens.size() << "): ";
+  for (size_t i = 0; i < tokens.size(); ++i) {
+    std::cout << "[" << tokens[i] << "]";
+  }
+  std::cout << endl;
+}
+
+void SplitDemo() {
   string str("Samus||samus||mario||||Link");
   typedef find_iterator<string::iterator> string_find_iterator;
   string_find_iterator pos, end;
@@ -42,9 +53,21 @@ void split() {
     cout << "[" << tokens[i] << "]";
   }
   cout << endl;
+
+  Split("\t1\t2\t\t3\t\n", "\t\n");
+}
+
+void Trim(const std::string& str) {
+  std::string trimed = boost::algorithm::trim_copy(str);
+  std::cout << "str=" << str << ", trimed=" << trimed << ", trimed_length=" << trimed.length() << std::endl;
+}
+
+void TrimDemo() {
+  Trim("\t1\t2\t\t3\n");
 }
 
 int main(int argc, char **argv) {
-  split();
+  SplitDemo();
+  TrimDemo();
   return 0;
 }
