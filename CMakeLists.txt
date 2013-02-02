@@ -54,4 +54,8 @@ link_directories(
     ${third_dir}/lib
 )
 
+function (add_exe name)
+  add_executable(${name} ${name})
+endfunction()
+
 add_subdirectory(src)
